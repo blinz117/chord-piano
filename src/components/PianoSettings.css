@@ -1,0 +1,16 @@
+.piano-settings {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+.piano-setting-select {
+  display: flex;
+  align-items: baseline;
+}
+
+.piano-setting-select * {
+  margin: 2px;
+}
