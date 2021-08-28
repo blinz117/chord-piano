@@ -102,7 +102,9 @@ export default function App() {
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <div className="App">
-        <Typography variant="h1">Chord Piano</Typography>
+        <Typography variant="h1" className="page-title">
+          Chord Piano
+        </Typography>
         <PianoSettings
           scalePitch={scalePitch}
           setScalePitch={setScalePitch}
