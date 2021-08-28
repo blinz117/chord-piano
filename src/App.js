@@ -1,4 +1,10 @@
-import { CircularProgress, Typography } from "@material-ui/core";
+import {
+  CircularProgress,
+  createTheme,
+  CssBaseline,
+  ThemeProvider,
+  Typography
+} from "@material-ui/core";
 import { instruments } from "./data/Instrument";
 import { scaleForPitch, ScaleType } from "./data/Scale";
 import { chordForPitchInScale, getChordNamesForScale } from "./data/Chord";
@@ -24,6 +30,12 @@ const AppState = {
   Ready: "Ready",
   Error: "Error"
 };
+
+const darkTheme = createTheme({
+  palette: {
+    type: "dark"
+  }
+});
 
 export default function App() {
   const [state, setState] = useState(AppState.Loading);
@@ -87,28 +99,31 @@ export default function App() {
   };
 
   return (
-    <div className="App">
-      <Typography variant="h1">Chord Piano</Typography>
-      <PianoSettings
-        scalePitch={scalePitch}
-        setScalePitch={setScalePitch}
-        scaleType={scaleType}
-        setScaleType={setScaleType}
-        instrumentName={instrumentName}
-        setInstrumentName={setInstrumentName}
-      />
-      {state === AppState.Loading ? (
-        <div>
-          <Typography>Loading...</Typography>
-          <CircularProgress />
-        </div>
-      ) : (
-        <Piano
-          chords={chords}
-          onKeyPressed={onKeyPressed}
-          onKeyReleased={onKeyReleased}
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <div className="App">
+        <Typography variant="h1">Chord Piano</Typography>
+        <PianoSettings
+          scalePitch={scalePitch}
+          setScalePitch={setScalePitch}
+          scaleType={scaleType}
+          setScaleType={setScaleType}
+          instrumentName={instrumentName}
+          setInstrumentName={setInstrumentName}
         />
-      )}
-    </div>
+        {state === AppState.Loading ? (
+          <div>
+            <Typography>Loading...</Typography>
+            <CircularProgress />
+          </div>
+        ) : (
+          <Piano
+            chords={chords}
+            onKeyPressed={onKeyPressed}
+            onKeyReleased={onKeyReleased}
+          />
+        )}
+      </div>
+    </ThemeProvider>
   );
 }
