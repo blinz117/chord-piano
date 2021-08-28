@@ -1,4 +1,4 @@
-import { Typography } from "@material-ui/core";
+import { CircularProgress, Typography } from "@material-ui/core";
 import { instruments } from "./data/Instrument";
 import { scaleForPitch, ScaleType } from "./data/Scale";
 import { chordForPitchInScale, getChordNamesForScale } from "./data/Chord";
@@ -89,24 +89,25 @@ export default function App() {
   return (
     <div className="App">
       <Typography variant="h1">Chord Piano</Typography>
+      <PianoSettings
+        scalePitch={scalePitch}
+        setScalePitch={setScalePitch}
+        scaleType={scaleType}
+        setScaleType={setScaleType}
+        instrumentName={instrumentName}
+        setInstrumentName={setInstrumentName}
+      />
       {state === AppState.Loading ? (
-        <Typography>Loading</Typography>
+        <div>
+          <Typography>Loading...</Typography>
+          <CircularProgress />
+        </div>
       ) : (
-        <>
-          <PianoSettings
-            scalePitch={scalePitch}
-            setScalePitch={setScalePitch}
-            scaleType={scaleType}
-            setScaleType={setScaleType}
-            instrumentName={instrumentName}
-            setInstrumentName={setInstrumentName}
-          />
-          <Piano
-            chords={chords}
-            onKeyPressed={onKeyPressed}
-            onKeyReleased={onKeyReleased}
-          />
-        </>
+        <Piano
+          chords={chords}
+          onKeyPressed={onKeyPressed}
+          onKeyReleased={onKeyReleased}
+        />
       )}
     </div>
   );
