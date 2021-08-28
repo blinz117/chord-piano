@@ -4,3 +4,7 @@
   align-items: center;
   justify-content: center;
 }
+
+.piano-key-label {
+  user-select: none;
+}
