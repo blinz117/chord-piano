@@ -11,7 +11,6 @@ function PianoKey({ label, keyPressed, keyReleased }) {
   };
 
   const onKeyReleased = () => {
-    console.log("Released");
     setIsPressed(false);
     keyReleased();
   };
