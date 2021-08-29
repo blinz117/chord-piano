@@ -79,7 +79,10 @@ export default function App() {
 
       const chord = chordForPitchInScale(scale, chordIndex);
       // console.log(chord);
-      chord.forEach((pitch) => {
+      chord.forEach((pitch, index) => {
+        if (index === 0) {
+          instrumentRef.current.play(pitch + "3");
+        }
         instrumentRef.current.play(pitch + "4");
       });
     },
