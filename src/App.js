@@ -2,6 +2,7 @@ import {
   CircularProgress,
   createTheme,
   CssBaseline,
+  Link,
   ThemeProvider,
   Typography
 } from "@material-ui/core";
@@ -24,6 +25,7 @@ import Piano from "./components/Piano";
 import currentChordReducer, {
   ChordActionType
 } from "./reducers/currentChordReducer";
+import AboutDialog from "./components/AboutDialog";
 
 const AppState = {
   Loading: "Loading",
@@ -101,6 +103,8 @@ export default function App() {
     chordActionDispatch({ chordIndex: index, type: ChordActionType.Stop });
   };
 
+  const [showAbout, setShowAbout] = useState(false);
+
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
@@ -128,6 +132,14 @@ export default function App() {
             onKeyReleased={onKeyReleased}
           />
         )}
+        <Link
+          className="about-link"
+          component="button"
+          onClick={() => setShowAbout(true)}
+        >
+          What is this?
+        </Link>
+        <AboutDialog isOpen={showAbout} close={() => setShowAbout(false)} />
       </div>
     </ThemeProvider>
   );
