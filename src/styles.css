@@ -10,6 +10,7 @@ html {
 
 .page-title {
   padding: 24px;
+  text-align: center;
 }
 
 @media only screen and (max-width: 600px) {
