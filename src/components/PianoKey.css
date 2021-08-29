@@ -1,9 +1,21 @@
 .piano-key {
   display: flex;
   width: 100%;
-  aspect-ratio: 1 / 2;
+
   align-items: center;
   justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .piano-key {
+    aspect-ratio: 3 / 5;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .piano-key {
+    aspect-ratio: 1 / 2;
+  }
 }
 
 .piano-key-label {
