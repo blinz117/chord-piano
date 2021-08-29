@@ -109,29 +109,31 @@ export default function App() {
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <div className="App">
-        <Typography variant="h1" className="page-title">
-          Chord Piano
-        </Typography>
-        <PianoSettings
-          scalePitch={scalePitch}
-          setScalePitch={setScalePitch}
-          scaleType={scaleType}
-          setScaleType={setScaleType}
-          instrumentName={instrumentName}
-          setInstrumentName={setInstrumentName}
-        />
-        {state === AppState.Loading ? (
-          <div>
-            <Typography>Loading...</Typography>
-            <CircularProgress />
-          </div>
-        ) : (
-          <Piano
-            chords={chords}
-            onKeyPressed={onKeyPressed}
-            onKeyReleased={onKeyReleased}
+        <div className="app-content">
+          <Typography variant="h1" className="page-title">
+            Chord Piano
+          </Typography>
+          <PianoSettings
+            scalePitch={scalePitch}
+            setScalePitch={setScalePitch}
+            scaleType={scaleType}
+            setScaleType={setScaleType}
+            instrumentName={instrumentName}
+            setInstrumentName={setInstrumentName}
           />
-        )}
+          {state === AppState.Loading ? (
+            <div>
+              <Typography>Loading...</Typography>
+              <CircularProgress />
+            </div>
+          ) : (
+            <Piano
+              chords={chords}
+              onKeyPressed={onKeyPressed}
+              onKeyReleased={onKeyReleased}
+            />
+          )}
+        </div>
         <Link
           className="about-link"
           component="button"
