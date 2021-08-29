@@ -15,12 +15,12 @@ html {
 
 @media only screen and (max-width: 600px) {
   .page-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 }
 
 @media only screen and (min-width: 600px) {
   .page-title {
-    font-size: 6rem;
+    font-size: 5rem;
   }
 }
