@@ -12,3 +12,6 @@ export const pitches = [
   "A#",
   "B"
 ];
+
+export const getPitchOffsetFromC = (pitch) =>
+  pitches.findIndex((currentPitch) => pitch === currentPitch);

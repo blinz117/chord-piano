@@ -1,0 +1,28 @@
+.piano-settings {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+@media only screen and (max-width: 600px) {
+  .piano-settings {
+    flex-flow: column wrap;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .piano-settings {
+    flex-direction: row;
+  }
+}
+
+.piano-setting-select {
+  display: flex;
+  align-items: baseline;
+}
+
+.piano-setting-select * {
+  margin: 2px;
+}
